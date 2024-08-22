@@ -7,18 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12B924AA2C760714005FA7D5 /* ListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924A92C760714005FA7D5 /* ListElement.swift */; };
+		12B924AC2C76089B005FA7D5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924AB2C76089B005FA7D5 /* ListView.swift */; };
+		12B924AE2C760BAA005FA7D5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924AD2C760BAA005FA7D5 /* MainView.swift */; };
+		12B924B12C7611AF005FA7D5 /* BasketElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924B02C7611AF005FA7D5 /* BasketElement.swift */; };
+		12B924B32C761864005FA7D5 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924B22C761864005FA7D5 /* BasketView.swift */; };
 		12D0D58C2C747B91005C8014 /* mySparApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0D58B2C747B91005C8014 /* mySparApp.swift */; };
-		12D0D58E2C747B91005C8014 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0D58D2C747B91005C8014 /* ContentView.swift */; };
+		12D0D58E2C747B91005C8014 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0D58D2C747B91005C8014 /* GridView.swift */; };
 		12D0D5902C747B92005C8014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D0D58F2C747B92005C8014 /* Assets.xcassets */; };
 		12D0D5932C747B92005C8014 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D0D5922C747B92005C8014 /* Preview Assets.xcassets */; };
+		12D0D59A2C748535005C8014 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0D5992C748535005C8014 /* Model.swift */; };
+		12D0D59C2C748730005C8014 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0D59B2C748730005C8014 /* ViewModel.swift */; };
+		12E6A6982C74B5BA00C01E2E /* GridElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A6972C74B5BA00C01E2E /* GridElement.swift */; };
+		12E6A69C2C74C1D200C01E2E /* ButtonBuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A69B2C74C1D200C01E2E /* ButtonBuy.swift */; };
+		12E6A69E2C74C92100C01E2E /* TypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A69D2C74C92100C01E2E /* TypePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12B924A92C760714005FA7D5 /* ListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElement.swift; sourceTree = "<group>"; };
+		12B924AB2C76089B005FA7D5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		12B924AD2C760BAA005FA7D5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		12B924B02C7611AF005FA7D5 /* BasketElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketElement.swift; sourceTree = "<group>"; };
+		12B924B22C761864005FA7D5 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		12D0D5882C747B91005C8014 /* mySpar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mySpar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D0D58B2C747B91005C8014 /* mySparApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mySparApp.swift; sourceTree = "<group>"; };
-		12D0D58D2C747B91005C8014 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		12D0D58D2C747B91005C8014 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		12D0D58F2C747B92005C8014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D0D5922C747B92005C8014 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		12D0D5992C748535005C8014 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		12D0D59B2C748730005C8014 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		12E6A6972C74B5BA00C01E2E /* GridElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridElement.swift; sourceTree = "<group>"; };
+		12E6A69B2C74C1D200C01E2E /* ButtonBuy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuy.swift; sourceTree = "<group>"; };
+		12E6A69D2C74C92100C01E2E /* TypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +52,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124AD7032C75DB05003C194E /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				12D0D58D2C747B91005C8014 /* GridView.swift */,
+				12E6A6972C74B5BA00C01E2E /* GridElement.swift */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		124E6E272C74AFA300AC75EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A69A2C74C1BF00C01E2E /* Elements */,
+				12B924AF2C761193005FA7D5 /* Basket */,
+				12B924A82C7606F9005FA7D5 /* List */,
+				124AD7032C75DB05003C194E /* Grid */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		12B924A82C7606F9005FA7D5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				12B924A92C760714005FA7D5 /* ListElement.swift */,
+				12B924AB2C76089B005FA7D5 /* ListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		12B924AF2C761193005FA7D5 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				12B924B02C7611AF005FA7D5 /* BasketElement.swift */,
+				12B924B22C761864005FA7D5 /* BasketView.swift */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
 		12D0D57F2C747B91005C8014 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				12D0D58B2C747B91005C8014 /* mySparApp.swift */,
-				12D0D58D2C747B91005C8014 /* ContentView.swift */,
+				12E6A6992C74C08700C01E2E /* Extensions */,
+				12D0D5992C748535005C8014 /* Model.swift */,
+				12D0D59B2C748730005C8014 /* ViewModel.swift */,
+				124E6E272C74AFA300AC75EC /* Views */,
+				12B924AD2C760BAA005FA7D5 /* MainView.swift */,
 				12D0D58F2C747B92005C8014 /* Assets.xcassets */,
 				12D0D5912C747B92005C8014 /* Preview Content */,
 			);
@@ -65,6 +127,22 @@
 				12D0D5922C747B92005C8014 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		12E6A6992C74C08700C01E2E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12E6A69A2C74C1BF00C01E2E /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A69B2C74C1D200C01E2E /* ButtonBuy.swift */,
+				12E6A69D2C74C92100C01E2E /* TypePicker.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +215,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D0D58E2C747B91005C8014 /* ContentView.swift in Sources */,
+				12B924B32C761864005FA7D5 /* BasketView.swift in Sources */,
+				12E6A69C2C74C1D200C01E2E /* ButtonBuy.swift in Sources */,
+				12E6A6982C74B5BA00C01E2E /* GridElement.swift in Sources */,
+				12B924AA2C760714005FA7D5 /* ListElement.swift in Sources */,
+				12B924AE2C760BAA005FA7D5 /* MainView.swift in Sources */,
+				12D0D58E2C747B91005C8014 /* GridView.swift in Sources */,
 				12D0D58C2C747B91005C8014 /* mySparApp.swift in Sources */,
+				12D0D59C2C748730005C8014 /* ViewModel.swift in Sources */,
+				12D0D59A2C748535005C8014 /* Model.swift in Sources */,
+				12B924B12C7611AF005FA7D5 /* BasketElement.swift in Sources */,
+				12E6A69E2C74C92100C01E2E /* TypePicker.swift in Sources */,
+				12B924AC2C76089B005FA7D5 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -280,6 +368,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +398,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

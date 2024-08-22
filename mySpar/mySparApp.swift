@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct mySparApp: App {
+    @EnvironmentObject var vm: ViewModel
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GridView()
+                .environmentObject(ViewModel())
         }
     }
 }
