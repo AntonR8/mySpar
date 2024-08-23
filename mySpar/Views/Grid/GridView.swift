@@ -23,7 +23,7 @@ struct GridView: View {
                         .foregroundStyle(.white)
                         .shadow(radius: 10)
                         .overlay {
-                            GridElement(id: product.id, imageName: product.image ?? "", rating: product.rating, name: product.name, price: product.price ?? 0, oldPrice: product.oldPrice, madeIn: product.madeIn, isFavourite: product.isFavoutite, comment: product.comment)
+                            GridElement(id: product.id, imageName: product.image ?? "", rating: product.rating, name: product.name, price: product.price, oldPrice: product.oldPrice, madeIn: product.madeIn, quantity: product.quantity, isFavourite: product.isFavoutite, comment: product.comment, measure: product.measure)
                                 .frame(maxWidth: .infinity)
                         }
 

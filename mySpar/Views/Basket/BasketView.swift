@@ -12,10 +12,23 @@ struct BasketView: View {
     
     var body: some View {
         List {
-            ForEach(vm.productsInBasket) {product in
-                BasketElement(imageName: product.image ?? "", name: product.name, price: product.price ?? 0, quantity: product.quantity ?? 0)
-                    .frame(maxWidth: .infinity, maxHeight: 150)
-                    .listRowSeparator(/*@START_MENU_TOKEN@*/.visible/*@END_MENU_TOKEN@*/)
+            Section(header: Text("Корзина"))
+            {
+                ForEach(vm.productsInBasket) {product in
+                    BasketElement(imageName: product.image ?? "", name: product.name, price: product.price, quantity: product.quantity ?? 0)
+                        .frame(maxWidth: .infinity, maxHeight: 150)
+                        .listRowSeparator(/*@START_MENU_TOKEN@*/.visible/*@END_MENU_TOKEN@*/)
+                }
+                .onDelete(perform: { indexSet in
+                    vm.deleteFromBasket(indexSet: indexSet)
+                })
+            }
+            HStack {
+                Text("Итого:")
+                Spacer()
+                Text(String(format: "%.0f", vm.totalPrice()) + " ₽")
+                    .font(.title3)
+                    .bold()
             }
         }
         .listStyle(.plain)

@@ -12,7 +12,7 @@ struct mySparApp: App {
     @EnvironmentObject var vm: ViewModel
     var body: some Scene {
         WindowGroup {
-            GridView()
+            MainView()
                 .environmentObject(ViewModel())
         }
     }

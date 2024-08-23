@@ -9,21 +9,17 @@ import SwiftUI
 
 struct TypePicker: View {
     @EnvironmentObject var vm: ViewModel
-    @State var selection = "Шт"
+    var id: String
+    @Binding var selection: String
 
     var body: some View {
         Picker("Pick", selection: $selection) {
-            Text("Шт").tag("Шт")
-        Text("Кг").tag("Кг")
+            Text("Шт").tag("шт")
+            Text("Кг").tag("кг")
         }
-        .frame(height: 20)
         .pickerStyle(SegmentedPickerStyle())
-//        .scaledToFill()
-//        .scaleEffect(CGSize(width: 1.0, height: 0.8))
-
+        .onChange(of: selection) {
+            vm.changeMeasure(id: id, newMeasure: selection)
+        }
     }
-}
-
-#Preview {
-    TypePicker()
 }

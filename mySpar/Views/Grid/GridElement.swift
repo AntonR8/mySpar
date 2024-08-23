@@ -19,62 +19,59 @@ struct GridElement: View {
     var isFavourite: Bool
     let comment: String?
     var discount: Int?
+    @State var measure: String
+
+
 
     @EnvironmentObject var vm: ViewModel
 
     var body: some View {
-            VStack (alignment: .leading) {
-                Image(imageName)
-                HStack {
-                    Text("⭐️ \(String(format: "%.1f", rating ?? 5.0))")
-                        .font(.caption)
-                    Spacer()
-                    Text("25%")
-                        .foregroundStyle(.red)
-                        .fontDesign(.rounded)
-                        .bold()
-                }
-                Text(name)
+        VStack (alignment: .leading) {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+            HStack {
+                Text("⭐️ \(String(format: "%.1f", rating ?? 5.0))")
                     .font(.caption)
-                    .padding(.vertical, 2)
-                Text(madeIn ?? "")
-                    .font(.caption2)
-                    .foregroundStyle(.gray)
                 Spacer()
-                
-                if let quantity {
-                    TypePicker()
-                        .padding(.vertical, 2)
-
-                    ButtonBuy()
-                }
-                else {
-                    HStack {
-                        VStack (alignment: .leading) {
-                            HStack (alignment: .top, spacing: 2) {
-                                Text(String(format: "%.0f", price)).font(.headline)
-                                Text(String(format: "%.0f", price.truncatingRemainder(dividingBy: Double(Int(price)))*100) + " ₽/кг")
-                                    .font(.subheadline)
-                            }
-                            .bold()
-                            .fontDesign(.rounded)
-                            Text(String(format: "%.1f", oldPrice ?? ""))
-                                .font(.caption)
-                                .strikethrough()
-                                .foregroundStyle(.gray)
-                        }
-                        Spacer()
-                        Button(action: {
-//                            vm.products.firstIndex(where: $0.id == id)
-
-
-                        }, label: {
-                            ButtonBuy()
-                        })
-
+                Text("25%")
+                    .foregroundStyle(.red)
+                    .fontDesign(.rounded)
+                    .bold()
+            }
+            Text(name)
+                .font(.caption)
+                .padding(.vertical, 2)
+            Text(madeIn ?? "")
+                .font(.caption2)
+                .foregroundStyle(.gray)
+            Spacer()
+            if quantity != nil {
+                TypePicker(id: id, selection: $measure)
+                    .padding(.vertical, 2)
+            }
+            HStack {
+                if quantity == nil {
+                    VStack (alignment: .leading) {
+                        HStack (alignment: .top, spacing: 1) {
+                            Text(String(format: "%.0f", price)).font(.headline)
+                            Text(String(format: "%.0f", price.truncatingRemainder(dividingBy: Double(Int(price)))*100))
+                                .font(.footnote)
+                            Text("₽/кг")
+                                .font(.caption2)
+                                .offset(y: 4)
+                        } 
+                        .bold()
+                        .fontDesign(.rounded)
+                        Text(String(format: "%.1f", oldPrice ?? ""))
+                            .font(.caption)
+                            .strikethrough()
+                            .foregroundStyle(.gray)
                     }
+                    Spacer()
                 }
-
+                ButtonBuy(quantity: quantity, id: id, price: price, measure: measure)
+            }
         }
             .padding(8)
             .overlay(
@@ -83,7 +80,7 @@ struct GridElement: View {
                         HStack {
                             RoundedRectangle(cornerRadius: 3)
                                 .foregroundStyle(comment == "Новинка" ? .green : .red)
-                                .frame(width: 100, height: 20)
+                                .frame(width: 110, height: 20)
                                 .overlay {
                                     Text(comment)
                                         .font(.caption2)

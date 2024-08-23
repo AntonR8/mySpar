@@ -20,14 +20,21 @@ struct BasketElement: View {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100)
+                .frame(width: 70)
+
             Text(name)
-            RoundedRectangle(cornerRadius: 25)
-                .frame(width: 100, height: 60)
+                .font(.footnote)
+            Spacer()
+            Divider()
+            Text(String(format: "%.0f", quantity) + " шт")
+            RoundedRectangle(cornerRadius: 10)
+                .frame(width: 100, height: 40)
                 .foregroundStyle(.green)
                 .overlay {
                     HStack (alignment: .top, spacing: 2) {
                         Text(String(format: "%.0f", price*quantity) + " ₽")
+                            .foregroundStyle(.white)
+                            .font(.subheadline)
                     }
                     .bold()
                     .fontDesign(.rounded)

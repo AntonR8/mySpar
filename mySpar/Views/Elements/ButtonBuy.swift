@@ -9,33 +9,42 @@ import SwiftUI
 
 struct ButtonBuy: View {
     @EnvironmentObject var vm: ViewModel
-    @State var addedToBasket = false
+    var quantity: Double?
+    var id: String
+    var price: Double
+    var measure: String
 
     var body: some View {
         RoundedRectangle(cornerRadius: 25)
-            .frame(width: addedToBasket ? .infinity : 40, height: 30)
+            .frame(width: quantity != nil ? .infinity : 50, height: 40)
             .foregroundStyle(.green)
             .overlay {
-                if addedToBasket {
+                if quantity != nil {
                     HStack {
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {
+                            if quantity ?? 0 > 0 {
+                                vm.changeQuantity(id: id, newQuantity: (quantity ?? 0) - 1.0)
+                            }
+                        }, label: {
                             Image(systemName: "minus")
-                                .font(.title2)
-                                .padding()
+                                .padding(.vertical)
+                                .padding(.leading)
                         })
                         Spacer()
                         VStack {
-                            Text("50 кг")
+                            Text(String(format: "%.0f", quantity ?? 0) + " \(measure)")
                                 .font(.callout)
                                 .fontDesign(.rounded)
-                            Text("~5,92 ₽")
+                            Text("~" + String(format: "%.0f", (quantity ?? 0)*price) + " ₽")
                                 .font(.caption2)
                         }
                         Spacer()
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {
+                            vm.changeQuantity(id: id, newQuantity: (quantity ?? 0) + 1.0)
+                        }, label: {
                             Image(systemName: "plus")
-                                .font(.title2)
-                                .padding()
+                                .padding(.vertical)
+                                .padding(.trailing)
                         })
                     }
                     .foregroundStyle(.white)
@@ -50,13 +59,11 @@ struct ButtonBuy: View {
             }
             .onTapGesture {
                 withAnimation(.bouncy) {
-                    addedToBasket = true
+                    vm.changeQuantity(id: id, newQuantity: 1)
                 }
 
             }
     }
 }
 
-#Preview {
-    ButtonBuy()
-}
+

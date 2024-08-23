@@ -43,12 +43,13 @@ struct MainView: View {
                         Text("Товары")
                     }
                     .tag(1)
-                Color.yellow.ignoresSafeArea()
+                BasketView()
                     .tabItem {
                         Text("Корзина")
                         Image(systemName: "basket.fill")
                     }
                     .tag(2)
+                    .badge(vm.productsInBasket.count)
             })
         }
     }
