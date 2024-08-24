@@ -5,6 +5,14 @@
 //  Created by Антон Разгуляев on 20.08.2024.
 //
 
+/*
+Свойства продукта, необхожимые для элемента:
+ - id
+ - новая цена
+ - количество в корзине
+ - в чем измеряется: шт или кг
+ */
+
 import SwiftUI
 
 struct ButtonBuy: View {
@@ -21,15 +29,7 @@ struct ButtonBuy: View {
             .overlay {
                 if quantity != nil {
                     HStack {
-                        Button(action: {
-                            if quantity ?? 0 > 0 {
-                                vm.changeQuantity(id: id, newQuantity: (quantity ?? 0) - 1.0)
-                            }
-                        }, label: {
-                            Image(systemName: "minus")
-                                .padding(.vertical)
-                                .padding(.leading)
-                        })
+                        reduceQuantityButton
                         Spacer()
                         VStack {
                             Text(String(format: "%.0f", quantity ?? 0) + " \(measure)")
@@ -39,13 +39,7 @@ struct ButtonBuy: View {
                                 .font(.caption2)
                         }
                         Spacer()
-                        Button(action: {
-                            vm.changeQuantity(id: id, newQuantity: (quantity ?? 0) + 1.0)
-                        }, label: {
-                            Image(systemName: "plus")
-                                .padding(.vertical)
-                                .padding(.trailing)
-                        })
+                        increaseQuantityButton
                     }
                     .foregroundStyle(.white)
                     .bold()
@@ -67,3 +61,29 @@ struct ButtonBuy: View {
 }
 
 
+extension ButtonBuy {
+    
+    /// Кнопка минус в раскрывшемся отображении кнопки Корзина
+    private var reduceQuantityButton: some View {
+        Button(action: {
+            if quantity ?? 0 > 0 {
+                vm.changeQuantity(id: id, newQuantity: (quantity ?? 0) - 1.0)
+            }
+        }, label: {
+            Image(systemName: "minus")
+                .padding(.vertical)
+                .padding(.leading)
+        })
+    }
+    
+    /// Кнопка плюс в раскрывшемся отображении кнопки Корзина
+    private var increaseQuantityButton: some View {
+        Button(action: {
+            vm.changeQuantity(id: id, newQuantity: (quantity ?? 0) + 1.0)
+        }, label: {
+            Image(systemName: "plus")
+                .padding(.vertical)
+                .padding(.trailing)
+        })
+    }
+}

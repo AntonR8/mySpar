@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02951FDE2C79DED50067F1E0 /* FavouritesButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02951FDD2C79DED50067F1E0 /* FavouritesButtons.swift */; };
+		02951FE02C79E15B0067F1E0 /* PriceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02951FDF2C79E15B0067F1E0 /* PriceField.swift */; };
+		02951FE22C79E2960067F1E0 /* CommentLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02951FE12C79E2960067F1E0 /* CommentLayer.swift */; };
 		12B924AA2C760714005FA7D5 /* ListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924A92C760714005FA7D5 /* ListElement.swift */; };
 		12B924AC2C76089B005FA7D5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924AB2C76089B005FA7D5 /* ListView.swift */; };
 		12B924AE2C760BAA005FA7D5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B924AD2C760BAA005FA7D5 /* MainView.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02951FDD2C79DED50067F1E0 /* FavouritesButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesButtons.swift; sourceTree = "<group>"; };
+		02951FDF2C79E15B0067F1E0 /* PriceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceField.swift; sourceTree = "<group>"; };
+		02951FE12C79E2960067F1E0 /* CommentLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentLayer.swift; sourceTree = "<group>"; };
 		12B924A92C760714005FA7D5 /* ListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElement.swift; sourceTree = "<group>"; };
 		12B924AB2C76089B005FA7D5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		12B924AD2C760BAA005FA7D5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -65,9 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				12E6A69A2C74C1BF00C01E2E /* Elements */,
-				12B924AF2C761193005FA7D5 /* Basket */,
-				12B924A82C7606F9005FA7D5 /* List */,
 				124AD7032C75DB05003C194E /* Grid */,
+				12B924A82C7606F9005FA7D5 /* List */,
+				12B924AF2C761193005FA7D5 /* Basket */,
+				12B924AD2C760BAA005FA7D5 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,7 +120,6 @@
 				12D0D5992C748535005C8014 /* Model.swift */,
 				12D0D59B2C748730005C8014 /* ViewModel.swift */,
 				124E6E272C74AFA300AC75EC /* Views */,
-				12B924AD2C760BAA005FA7D5 /* MainView.swift */,
 				12D0D58F2C747B92005C8014 /* Assets.xcassets */,
 				12D0D5912C747B92005C8014 /* Preview Content */,
 			);
@@ -132,6 +138,9 @@
 			isa = PBXGroup;
 			children = (
 				12E6A69B2C74C1D200C01E2E /* ButtonBuy.swift */,
+				02951FE12C79E2960067F1E0 /* CommentLayer.swift */,
+				02951FDD2C79DED50067F1E0 /* FavouritesButtons.swift */,
+				02951FDF2C79E15B0067F1E0 /* PriceField.swift */,
 				12E6A69D2C74C92100C01E2E /* TypePicker.swift */,
 			);
 			path = Elements;
@@ -211,13 +220,16 @@
 				12E6A69C2C74C1D200C01E2E /* ButtonBuy.swift in Sources */,
 				12E6A6982C74B5BA00C01E2E /* GridElement.swift in Sources */,
 				12B924AA2C760714005FA7D5 /* ListElement.swift in Sources */,
+				02951FE02C79E15B0067F1E0 /* PriceField.swift in Sources */,
 				12B924AE2C760BAA005FA7D5 /* MainView.swift in Sources */,
 				12D0D58E2C747B91005C8014 /* GridView.swift in Sources */,
+				02951FE22C79E2960067F1E0 /* CommentLayer.swift in Sources */,
 				12D0D58C2C747B91005C8014 /* mySparApp.swift in Sources */,
 				12D0D59C2C748730005C8014 /* ViewModel.swift in Sources */,
 				12D0D59A2C748535005C8014 /* Model.swift in Sources */,
 				12B924B12C7611AF005FA7D5 /* BasketElement.swift in Sources */,
 				12E6A69E2C74C92100C01E2E /* TypePicker.swift in Sources */,
+				02951FDE2C79DED50067F1E0 /* FavouritesButtons.swift in Sources */,
 				12B924AC2C76089B005FA7D5 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

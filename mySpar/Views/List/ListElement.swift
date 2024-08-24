@@ -5,23 +5,39 @@
 //  Created by Антон Разгуляев on 21.08.2024.
 //
 
+/*
+ Свойства продукта, необхожимые для элемента::
+ - id
+ - изображение
+ - страна изготовления (если есть)
+ - комментарий акции (если есть)
+ - наименование (если есть)
+ - рейтинг (если есть)
+ - старая цена (если есть)
+ - новая цена
+ - скидка (если есть)
+ - добавлен ли в избранное
+ - количество в корзине
+ - в чем измеряется: шт или кг
+ */
+
 import SwiftUI
 
 struct ListElement: View {
-    @EnvironmentObject var vm: ViewModel
-
     let id: String
     let imageName: String
-    let rating: Double?
-    let name: String
-    let price: Double
-    let oldPrice: Double?
     let madeIn: String?
-    var quantity: Double?
-    var isFavourite: Bool
     let comment: String?
+    let name: String
+    let rating: Double?
+    let oldPrice: Double?
+    let price: Double
     var discount: Int?
+    var isFavourite: Bool
+    var quantity: Double?
     @State var measure: String
+    
+    @EnvironmentObject var vm: ViewModel
 
     var body: some View {
         HStack {
@@ -29,60 +45,35 @@ struct ListElement: View {
                     .resizable()
                     .scaledToFit() 
                     .frame(width: UIScreen.main.bounds.width/2 - 64)
-            ZStack {
                 VStack(alignment: .leading) {
                     Text("⭐️ \(String(format: "%.1f", rating ?? 5.0))" )
-                        .font(.caption) + Text(" | ") + Text("19 отзывов").font(.caption).foregroundColor(.gray)
+                        .font(.caption).foregroundStyle(.black) + Text(" | ").foregroundStyle(.black) + Text("19 отзывов").font(.caption).foregroundColor(.gray)
                     Text(name)
                         .font(.caption)
                         .padding(.vertical, 2)
+                        .foregroundStyle(.black)
                     Text(madeIn ?? "")
                         .font(.caption2)
                         .foregroundStyle(.gray)
+                        .foregroundStyle(.black)
                     Spacer()
                     if quantity != nil {
                         TypePicker(id: id, selection: $measure)
-                            .padding(.vertical, 2)
+                            .padding(2)
                     }
                     HStack {
                         if quantity == nil {
-                            VStack (alignment: .leading) {
-                                HStack (alignment: .top, spacing: 2) {
-                                    Text(String(format: "%.0f", price)).font(.headline)
-                                    Text(String(format: "%.0f", price.truncatingRemainder(dividingBy: Double(Int(price)))*100) + " ₽/кг")
-                                        .font(.subheadline)
-                                }
-                                .bold()
-                                .fontDesign(.rounded)
-                                Text(String(format: "%.1f", oldPrice ?? ""))
-                                    .font(.caption)
-                                    .strikethrough()
-                                    .foregroundStyle(.gray)
-                            }
+                           PriceField(oldPrice: oldPrice, price: price)
                         }
                         Spacer()
                         ButtonBuy(quantity: quantity, id: id, price: price, measure: measure)
                     }
-                }
             }
         }
+        .background(.white)
         .overlay(
             VStack {
-                if let comment {
-                    HStack {
-                        RoundedRectangle(cornerRadius: 3)
-                            .foregroundStyle(comment == "Новинка" ? .green : .red)
-                            .frame(width: 110, height: 20)
-                            .overlay {
-                                Text(comment)
-                                    .font(.caption2)
-                                    .foregroundStyle(.white)
-
-                            }
-                        Spacer()
-                    }
-                    Spacer()
-                }
+                CommentLayer(comment: comment)
                 Spacer()
                 Text("25%")
                     .foregroundStyle(.red)
@@ -90,35 +81,11 @@ struct ListElement: View {
                     .bold()
                     .offset(x: (64 + 64 - UIScreen.main.bounds.width/2))
             }
-
         )
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .overlay {
-            VStack {
-                HStack {
-                    Spacer()
-                    VStack {
-                        Image(systemName: "doc.text")
-                            .padding(.bottom, 10)
-                            .foregroundColor(.gray)
-                        Button(action: {
-                            vm.makeFavourite(id: id)
-                        }, label: {
-                            Image(systemName: isFavourite ? "heart.fill" : "heart")
-                                .foregroundColor(isFavourite ? .red : .gray)
-                        })
-                        .font(.footnote)
-
-                    }
-                    .padding(8)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.white.opacity(0.7))
-                )
-                }
-                Spacer()
-            }
-            .padding(6)
+            FavouritesButtons(id: id, isFavourite: isFavourite)
         }
     }
 }
+

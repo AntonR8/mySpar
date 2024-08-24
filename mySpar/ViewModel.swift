@@ -8,14 +8,19 @@
 import Foundation
 
 class ViewModel: ObservableObject {
+    
+    /// Свойство, содержащее в себе массив из всех продуктов
     @Published var products: [Product] = []  {
         didSet {
             saveBasket()
         }
     }
+    
+    /// Свойство, содержащее в себе массив из продуктов, добавленных в корзину
     @Published var productsInBasket: [Product] = []
     
     init() {
+        // создание продуктовой линейки:
         products = [
             Product(image: "Nuts", comment: "Удар по ценам", name: "сыр Ламбер 500/0 230г", price: 99.90, oldPrice: 199, measure: "шт"),
             Product(image: "Cola", name: "Энергетический Напиток", price: 99.90, oldPrice: 199, discount: 25, measure: "шт"),
@@ -31,6 +36,7 @@ class ViewModel: ObservableObject {
             Product(image: "Tea", name: "Огурцы тепличные cадово- огородные", price: 2600.90, oldPrice: 199, measure: "шт")
         ]
 
+        // извлечение из UserDefaults свойства products для сохранения информации о добавлении товаров в корзину,  то есть свойства количество
         guard
             let data = UserDefaults.standard.data(forKey: "encodedProducts"),
             let decodedProducts = try? JSONDecoder().decode([Product].self, from: data)
@@ -38,12 +44,14 @@ class ViewModel: ObservableObject {
         self.products = decodedProducts
     }
 
+    /// Функция добавления в избранное товара. Создает такой же товар с противоположным значением параметра isFavoutite
     func makeFavourite(id: String) {
         if let index = products.firstIndex(where: {$0.id == id}) {
             products[index] = products[index].addOrRemoveFromFavoutites()
         }
     }
 
+    /// Функция изменения количества товара и добавления товара в корзину.
     func changeQuantity(id: String, newQuantity: Double) {
         if let index = products.firstIndex(where: {$0.id == id}) {
             products[index] = products[index].changeQuantity(newQuantity: newQuantity)
@@ -51,12 +59,14 @@ class ViewModel: ObservableObject {
         addToBasket()
     }
 
+    /// Функция изменения размерности товара. Создана под segmenred picker
     func changeMeasure(id: String, newMeasure: String) {
         if let index = products.firstIndex(where: {$0.id == id}) {
             products[index] = products[index].changeMeasure(newMeasure: newMeasure)
         }
     }
 
+    /// Функция добавления товара в корзину, то есть добавления продукта в массив productsInBasket. Отслеживает, чтобы товар не повторялся.
     func addToBasket() {
         var basket: [Product] = []
         for product in products {
@@ -67,6 +77,7 @@ class ViewModel: ObservableObject {
         productsInBasket = basket
     }
 
+    /// Функция расчета стоимости товаров в корзине
     func totalPrice() -> Double {
         var total: Double = 0
         for product in productsInBasket {
@@ -77,12 +88,13 @@ class ViewModel: ObservableObject {
         return total
     }
 
+    /// Функция сохранения свойства products в UserDefaults
     func saveBasket() {
         let encodedProducts = try? JSONEncoder().encode(products)
         UserDefaults.standard.setValue(encodedProducts, forKey: "encodedProducts")
     }
 
-
+    /// Функция удаления товаров из корзины.
     func deleteFromBasket (indexSet: IndexSet) {
         productsInBasket.remove(atOffsets: indexSet)
     }
